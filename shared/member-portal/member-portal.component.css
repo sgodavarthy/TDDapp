@@ -1,0 +1,122 @@
+
+
+
+
+.black-center{
+  color:black;
+  margin-top:5px;
+  text-align: center;
+}
+
+.image-section i{
+    margin-left:7px;
+}
+
+.nonimage-section h3{
+    color:white;
+}
+
+.nonimage-section p{
+    color:black;
+    text-align: left;
+}
+
+
+
+/**/
+.search i{
+    color:#3B81A3;
+}
+.section{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.dropdown-content li{
+   float:left;
+
+}
+
+
+
+/*bottom section*/
+.bottom-section{
+    background-color:#3B81A3;
+    text-align: left;
+    color:white;
+    padding:20px;
+    margin-bottom:-20px;
+    margin-top: 10px;
+}
+
+
+.bottom-section > p, h2{
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+/*pofile drop down*/
+.dropdown-menu{
+    background-color: black !important;
+}
+
+.navbar-nav a{
+    color:white;
+}
+
+.navbar-nav a:hover{
+    background-color: #3B81A3;
+    color:white;
+}
+
+.navbar-nav a:visited{
+    background-color: #3B81A3;
+    color:white;
+}
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+
+
+ .profile-section p, i{
+   color:white;
+} 
+
+/*hr*/
+.loggedin-hr{
+    border-top:5px solid #adadad;
+}
+
+.feature-program-title{
+    height:80px;
+}
+
+
+
+
+
+
+
+

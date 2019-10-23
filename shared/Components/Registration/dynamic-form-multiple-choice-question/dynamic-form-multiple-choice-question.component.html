@@ -1,0 +1,36 @@
+
+
+
+
+
+<div [formGroup]="form">
+
+    <!--row starts-->
+    <div class="row form-group">
+
+      <label [attr.for]="question.key" class="col-md-4 control-label">{{question.label}}</label>
+
+      <div class="col-md-8">
+
+        <div [ngClass]="isValid ? 'has-success has-feedback' : ''">
+
+            <select [id]="question.key"  
+                    [formControlName]="question.key">
+                <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+              </select>
+
+          <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+            
+
+          <span *ngIf="isValid" class="glyphicon glyphicon-ok form-control-feedback"
+            aria-hidden="true"></span>
+          <span [id]="inputSuccess + question.key" class="sr-only">(success)</span>
+        </div>
+
+
+      </div>
+    <!--column ends-->
+    </div> 
+    <!--row ends-->
+  
+</div><!--form group-->

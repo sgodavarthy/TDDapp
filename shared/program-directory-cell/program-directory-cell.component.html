@@ -1,0 +1,114 @@
+<div *ngIf="Mode == 0" class="program-cell">
+  <div>
+    <a (click)="EmitProgramSelection($event)" href="">
+        <div class="row">
+          <div class="col-md-12 program-directory-cell">
+            <img [src]="SetThumbnailImage()" onError="this.src='/assets/Images/lp1.jpg';" style="width:100px;height:90px;float:left;padding-right:10px;padding-left:10px;padding-top:15px;padding-bottom:0px"/>
+            <p class="programtitle">{{Program.Name}}</p>
+            <p style="margin-left:5px;">{{Program.Description === "n/a"?"":Program.Description}}</p>
+            <p class="title"><b>Therapeutic Area: </b><span>{{Program.TherapeuticArea}}</span></p>
+          </div>
+
+        </div>
+        </a>
+      </div>
+</div>
+
+<div *ngIf="Mode == 2" class="program-cell">
+    <a>
+        <div class="row">
+          <div class="col-md-6 program-directory-cell-inprogress">
+            <div *ngIf="(Program.ProgramTypeID === 1)">
+                <img [src]="SetThumbnailImage()" onError="this.src='/assets/Images/lp1.jpg';" style="width:100px;height:90px;float:left;padding-right:10px;padding-top:0px;padding-left:10px;padding-bottom:10px;"/>
+                <a (click)="GotoDetailsPage()"><p class="programtitle">{{Program.Name}}</p></a>
+                
+            </div>
+            <div *ngIf="!(Program.ProgramTypeID === 1)">
+                <img [src]="SetThumbnailImage()" onError="this.src='/assets/Images/lp1.jpg';" style="width:100px;height:90px;float:left;padding-right:10px;padding-top:0px;padding-left:10px;padding-bottom:10px;"/>               
+                <a class="no-link"><p class="programtitle">{{Program.Name}}</p></a>
+            </div>
+          </div>
+          <div class="col-md-3 program-directory-cell">
+            <p class="center-block cell-single-element">{{Program.CompletedDate}}</p>
+          </div>
+          <div class="col-md-3 program-directory-cell">
+            <span class="cell-single-element"><a (click)="GenerateCertificate()">English</a></span>
+            <span>  </span>
+            <span class="cell-single-element"><a class="" (click)="GenerateCertificateArb()">Arabic</a></span>
+          </div>
+
+        </div>
+        </a>
+</div>
+
+<div *ngIf="Mode == 1" class="program-cell">
+    <a>
+        <div class="row">
+          <div class="col-md-9 program-directory-cell-completed">
+            <div *ngIf="Program.ProgramTypeID === 1">
+                <img src="/assets/Images/lp3.jpg" onError="this.src='/assets/Images/lp1.jpg';" style="width:100px;height:90px;float:left;padding-right:10px;padding-top:10px;padding-left:10px;padding-bottom:10px"/>
+                <a class="title-inprogress" (click)="GotoDetailsPage()"><p style="margin-top:auto;margin-bottom:auto;">{{Program.Name}}</p></a>
+                
+            </div>
+            <div *ngIf="!(Program.ProgramTypeID === 1)"> 
+              <img src="/assets/Images/lp3.jpg" onError="this.src='/assets/Images/lp1.jpg';" style="width:100px;height:90px;float:left;padding-right:10px;padding-top:10px;padding-left:10px;padding-bottom:10px"/>
+              <a class="title-inprogress no-link"><p style="margin-top:auto;margin-bottom:auto;">{{Program.Name}}</p></a>
+              <!-- <p class="title-inprogress"><span style="margin-top:auto;margin-bottom:auto;">{{Program.Name}}</span></p> -->
+            </div>
+           
+          </div>
+          <div class="col-md-3 program-directory-cell">
+            <button type=button (click)="GoToProgram()" class="btn kfmc-button cell-single-element">Go To Program</button>
+            <br />
+          </div>
+
+        </div>
+        </a>
+</div>
+
+<!-- no programs in progress-->
+<div *ngIf="Mode === 3" class="program-cell">
+    <a>
+        <div class="row">
+          <div class="col-md-9 program-directory-cell-completed">
+              <br />
+              <p style="margin-left:15px;color:#3B81A3;font-size: 15px;margin-bottom:20px;">You do not have any programs in progress. <a style = "color:#174257" (click)="GotoProgramDirectory()"> Find programs</a>.</p>
+          </div>
+
+
+        </div>
+        </a>
+</div>
+
+<!-- no completed programs-->
+<div *ngIf="Mode === 4" class="program-cell">
+    <a>
+        <div class="row">
+          <div class="col-md-9 program-directory-cell-completed">
+             <br />
+            
+            <p style="margin-left:15px;color:#3B81A3;font-size: 15px;margin-bottom:20px;">You have not completed any programs.</p>
+          </div>
+
+
+        </div>
+        </a>
+</div>
+
+<!-- <div class="container">
+    <div id="pdf">
+        <div class="row certificate">
+            <h2 class="name">{{Program.SiteuserName}}</h2>
+            <h2 class="program-title">{{Program.Name}}</h2>
+            <h3 class="program-title">{{Program.CompletedDate}}</h3>
+        </div>
+  
+        <!-- <div *ngIf="Program.Language === English" class="row certificateArb">
+            <h2 class="name">{{Program.SiteuserName}}</h2>
+            <h2 class="program-title">{{Program.Name}}</h2>
+            <h3 class="program-title">{{Program.CompletedDate}}</h3>
+        </div> -->
+         
+      
+        <!-- </div>
+</div> --> 

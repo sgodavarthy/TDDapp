@@ -1,0 +1,89 @@
+/*.program-cell .element:hover{
+    border-left: 2px solid red;
+    border-right:  2px solid red;*/
+    /*box-shadow: -2px 6px 6px #888888;*/
+    /*left: 20px;
+    padding-left: -20px;*/
+
+/* } */
+
+/* .program-cell .element{
+  left: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+      position: relative;
+} */
+
+
+
+
+
+.tp{
+    color:#3B81A3;
+}
+
+.program-cell{
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.programtitle{
+    color:#3B81A3 !important;
+    font-size: 15px;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.title{
+  color:#3B81A3 !important;
+  margin-left: 5px;
+}
+
+.title-inprogress{
+  color:#3B81A3 !important;
+  margin-top:4px;
+  font-size: 15px;
+  margin-left: 5px;
+
+}
+
+.no-link:hover{
+  text-decoration: none
+}
+
+.cell-single-element{
+  margin-top:25px;
+  margin-left: 5px;
+}
+
+
+.program-directory{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+
+  .program-directory-cell p{
+      color: black;
+      text-align: left;
+      width:80%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+  }
+
+  .program-directory-cell-inprogress, .program-directory-cell-completed{
+    color: black;
+    text-align: left;
+  }
+
+  span {
+    display: inline-block;
+  }
+
+
+
+

@@ -1,0 +1,107 @@
+<nav class="navbar navbar-inverse animated fadeIn">
+    <div class="container-fluid">
+<div class="row">
+        <div class="col-md-12">
+                <a class="mobile-view m-t-b pull-right" (click)="openMenu()">&#9776;</a> 
+
+        </div>
+
+</div>
+                                             
+
+            
+      <div class="row">
+         
+
+            
+
+
+
+
+
+          <div class="col-md-3 desktop">
+              <a [routerLink]="['/members/member-portal']" routerLinkActive="active"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+              <a (click)="RedirectToDirectory()"><i class="fa fa-book fa-2x white-center m-t-b" aria-hidden="true"></i></a>
+              <a [routerLink]="['/members/faq']"><i class="fa fa-question-circle fa-2x white-center m-t-b" aria-hidden="true"></i></a>
+          </div>
+          <div class="col-md-5">
+                <img src="/assets/Images/KFMC_logo_white_nav.png" class="center-block bar-image" />
+
+                        </div>
+          <div class="col-md-4 desktop">
+                <div class="btn-group pull-right m-t-b" role="group" *ngIf="IsLoogedIn">
+                        <button type="button" class="btn btn-default dropdown-toggle transparant-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         {{member.FirstName}}
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                                <li>
+                                    <div class="navbar-login">
+                                        <div class="row profile-section">
+                                            <div class="col-lg-4">
+                                                <p class="text-center">
+                                                    <span class="glyphicon glyphicon-user icon-size"></span>
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-8 profile-section">
+                                                <p class="text-left"><strong>{{member.FirstName}}</strong></p>
+                                                <p class="text-left small">{{member.Email}}</p>
+                                                <p class="text-left">
+                                                    <a (click)="Register()" class="btn btn-primary btn-block btn-sm">Profile</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="navbar-login navbar-login-session">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <p>
+                                                    <a (click)="Logout()" class="btn btn-danger btn-block">Logout</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                      </div>
+            <div class="row" *ngIf="!IsLoogedIn">
+                <div class="col-md-4">
+                        
+                   
+
+                </div>
+                <div class="col-md-2">
+                        <p class="m-t-25-b" *ngIf="!IsLoogedIn"><a class="white-center pointor" (click)="Login()">Login</a></p>
+
+
+                </div>
+                <div class="col-md-6">
+                        <p class="m-t-b" *ngIf="!IsLoogedIn"><a class="white-center pointor pull-right" (click)="Register()">Register</a></p>
+                    <button type="button" class="mobile-view m-t-b pull-right" (click)="openMenu()" icon="fa-arrow-right">&#9776;</button>
+
+                </div>
+            </div>
+          </div>
+      </div>
+
+     
+
+
+      <ul class="nav navbar-nav pull-right">
+        <!-- <li class="active"><h4>Welcome <span style="color:white;">{{UserLoginName}}</span></h4></li> -->
+
+      </ul>
+    </div>
+
+  </nav>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="openMenu()">&times;</a>
+    <a [routerLink]="['/members/member-portal']" routerLinkActive="active">Home</a>
+    <a *ngIf="!IsLoogedIn" (click)="Login()">Login</a>
+    <a *ngIf="IsLoogedIn" (click)="Logout()">Logout</a>
+    <a *ngIf="IsLoogedIn" (click)="Register()">Profile</a>
+    <a *ngIf="!IsLoogedIn" (click)="Register()">Register</a>
+    <a (click)="RedirectToDirectory();">Programs</a>
+  </div>

@@ -1,0 +1,89 @@
+<div class="profile-page">
+  <div class="container animated fadeIn">
+    <div *ngIf="showloader" class="loader">
+      <p-progressSpinner></p-progressSpinner>
+    </div>
+    <p-messages [(value)]="msgs"></p-messages>
+    <p *ngIf="SignUpMode" class="m-t-b">Please enter your King Fahad medical City employee credentials to sign up</p>
+    <div class="form" *ngIf="submitted">
+      <p>Click <a (click)="Login()">here</a> to Login.</p>
+    </div>
+    <div class="form" *ngIf="Profilesubmitted">
+      <p>Click <a (click)="Home()">here</a> to return to your home page.</p>
+    </div>
+
+
+    <h2 *ngIf="RegistrationMode">Complete your Profile</h2>
+    <p *ngIf="RegistrationMode">Welcome to online training. Please complete your profile to access programs.</p>
+    
+    
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+
+      <div class="profile-form animated fadeIn">
+        <h3 class="m-t-b"><b>Account Information</b></h3>
+        <div *ngFor="let question of questions" class="form-row">
+            <app-question [question]="question" [form]="form"></app-question>
+        </div>
+
+      </div>
+
+      <br />
+      <br />
+
+
+      <!-- <h3><b>Professional Details</b></h3>
+      <div class="profile-form">
+          <div *ngFor="let question of questions" class="form-row">
+              <app-dynamic-form-multiple-choice-question [question]="question" [form]="form"></app-dynamic-form-multiple-choice-question>
+          </div>
+
+      </div> -->
+
+      <div class="row form-group">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+
+
+
+          <button type="submit" class="btn btn-default kfmc-button hvr-sweep-to-left" [disabled]="!form.valid">Save</button>
+          <button (click)="Home()" class="btn btn-default kfmc-button hvr-sweep-to-left">Cancel</button>
+
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+
+      <div *ngIf="payLoad" class="form-row">
+          <strong>Saved the following values</strong><br>{{payLoad}}
+        </div>
+
+
+
+    </form>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<!-- initial-->
+<!-- <div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of questions" class="form-row">
+      <app-question [question]="question" [form]="form"></app-question>
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div> -->

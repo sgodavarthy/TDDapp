@@ -1,0 +1,295 @@
+<div class="home-content animated fadeIn">
+    <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                            <a class="mobile-view m-t-b pull-right" (click)="openMenu()"><b>&#9776;</b></a> 
+                    </div>
+                </div>
+            <div *ngIf="showloader" class="loader">
+                    <p-progressSpinner></p-progressSpinner>
+                  </div>
+        <div class="image-section">
+                     
+            <div class="row">
+                   
+                <div class="col-md-7 desktop">
+                    <a routerLink="members/member-portal" routerLinkActive="active"><i class="fa fa-home fa-2x white-center" aria-hidden="true"></i></a>
+                    <a (click)="RedirectToDirectory()"><i class="fa fa-book fa-2x white-center m-t-b" aria-hidden="true"></i></a>
+                    <a (click)="faq()"><i class="fa fa-question-circle fa-2x white-center m-t-b" aria-hidden="true"></i></a>
+                </div>
+                
+                <div class="col-md-5 desktop">
+                    <div class="row" *ngIf="!loggedIn">
+                            <div class="col-md-6">
+                                    <p class="m-t-25-b pull-right"><a class="white-center pointor" (click)="Login()">Login</a></p>
+                            </div>
+                            <div class="col-md-6">
+                                    <p class="pull-right"><button class="btn kfmc-button m-t-b pull-right hvr-sweep-to-left" (click)="Register()">Register</button></p>
+                            </div>
+                    </div>
+                    <div class="row" *ngIf="loggedIn">
+                        <div class="col-md-12">
+                                <div class="btn-group pull-right m-t-b" role="group">
+                                        <button type="button" class="btn btn-default dropdown-toggle transparant-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                         {{member.FirstName}}
+                                          <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                                <li>
+                                                    <div class="navbar-login">
+                                                        <div class="row profile-section">
+                                                            <div class="col-lg-4">
+                                                                <p class="text-center">
+                                                                    <span class="glyphicon glyphicon-user icon-size"></span>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-lg-8 profile-section">
+                                                                <p class="text-left"><strong>{{member.FirstName}}</strong></p>
+                                                                <p class="text-left small">{{member.Email}}</p>
+                                                                <p class="text-left">
+                                                                    <a (click)="Register()" class="btn btn-primary btn-block btn-sm">Profile</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="navbar-login navbar-login-session">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <p>
+                                                                    <a (click)="Logout()" class="btn btn-danger btn-block">Logout</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                      </div>
+                                <!-- <div class="collapse navbar-collapse pull-right">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown">
+                                                    <span class="glyphicon glyphicon-user"></span> 
+                                                    <strong>{{member.FirstName}}</strong>
+                                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <div class="navbar-login">
+                                                            <div class="row profile-section">
+                                                                <div class="col-lg-4">
+                                                                    <p class="text-center">
+                                                                        <span class="glyphicon glyphicon-user icon-size"></span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-lg-8 profile-section">
+                                                                    <p class="text-left"><strong>{{member.FirstName}}</strong></p>
+                                                                    <p class="text-left small">{{member.Email}}</p>
+                                                                    <p class="text-left">
+                                                                        <a (click)="Register()" class="btn btn-primary btn-block btn-sm">Profile</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="navbar-login navbar-login-session">
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <p>
+                                                                        <a (click)="Logout()" class="btn btn-danger btn-block">Logout</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        </div> -->
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                        <!-- <app-sidebar [visibleSidebar]="visibleSidebar"></app-sidebar> -->
+                    <img src="/assets/Images/KFMC_logo55_white.png" class="center-block" />
+                </div>
+
+            </div>
+
+            <div id="mySidenav" class="sidenav">
+                <a routerLink="members/member-portal" routerLinkActive="active">Home</a>
+                <a class="closebtn" (click)="openMenu()">&times;</a>
+                <a *ngIf="!loggedIn" (click)="Login()">Login</a>
+                <a *ngIf="loggedIn" (click)="Logout()">Logout</a>
+                <a *ngIf="loggedIn" (click)="Register()">Profile</a>
+                <a *ngIf="!loggedIn" (click)="Register()">Register</a>
+                <a (click)="RedirectToDirectory()">Programs</a>
+              </div>
+
+
+
+
+            <div class="row section">
+                <div class="col-md-12">
+                    <div class="center-block">
+                            <div class="dropdown input-group">
+                                <span class="input-group-btn"><button (click)="DisplayTherapeuticArea()" class="btn kfmc-button">&#9776; Programs</button></span>
+
+                                <input type="text" class="form-control" [(ngModel)]="searchstring" placeholder="Search Programs" (keyup.enter)="SearchDirectory()">
+                                <div class="input-group-addon"><a class="search" (click)="SearchDirectory()"><i class="fa fa-search"></i></a></div>
+
+
+                            </div>
+                            <div id="myDropdown" class="dropdown-content">
+                                <h3 style="color:#ffffff; margin-left:5%; margin-bottom:5px;">Categories</h3>
+                                <ul>
+                                    <div *ngFor="let therapeuticarea of TherapeuticAreaList;let i = index">
+                                        <li><div class="tp-item"><a (click)="SearchByTherapeuticArea($event)" [id]="therapeuticarea.Value">{{therapeuticarea.Name}}</a></div></li>
+                                    </div>
+                                    <div></div>
+                                </ul>
+
+
+                            </div>
+                            <!-- <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span> -->
+
+
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="row section">
+                    <div class="col-md-12">
+                        <div class="main-heading">
+                            <h2 class="white-center m-t-b" >Online Training</h2>
+                            
+                            <p class="white-center">Enhance your professional practice and training using <br /> scientifically based online Continuing
+                                Professional Development <br /> Programs (CPD) in collaboration with World leading Academic
+                                & <br /> Healthcare institutions</p>
+                            <button type="button" (click)="ViewPrograms()" class="btn kfmc-button center-block hvr-sweep-to-left">View Programs</button>
+                            
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div *ngIf="loggedIn && programsection" class="row section program-section">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button type="button" class="program-button btn center-block" (click)="ProgramsInProgress($event)">Programs In Progress</button>
+                                
+                                <button type="button" class="program-button btn btn-click center-block" (click)="CompletedPrograms($event)">Completed Programs</button>
+                                <br />
+                            </div>
+                            <div class="col-md-8">
+                                <div *ngFor="let program of ProgramList">
+
+                                    <app-program-directory-cell [Program]="program" (EmitCertificate)="GenerateCertificate($event)" (GoToLMS)="GoToLMS($event)" [Mode]="ProgramMode" ></app-program-directory-cell>
+
+
+                                </div>
+                                <div *ngIf="ProgramMode === 3 || ProgramMode === 4">
+                                        <app-program-directory-cell [Mode] = "ProgramMode"></app-program-directory-cell>
+                                    </div>
+                                    <br />
+                                <button *ngIf="ProgramMode === 1" type="button" (click)="ViewAllPrograms()" class="btn kfmc-button m-t-b">View All programs in Progress</button>
+                                <button *ngIf="ProgramMode === 2" type="button" (click)="ViewAllPrograms()" class="btn kfmc-button m-t-b">View All Completed Programs</button>
+                                
+                            </div>
+                            <div class="col-md-1">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <hr *ngIf="!loggedIn" size="4" style="color:gray;">
+                <hr *ngIf="loggedIn && programsection" class="loggedin-hr">
+            </div>
+
+
+            <div class="nonimage-section">
+                <div class="home-page-spotlight-wrapper">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <h3 id="spot-light" class="white-center pull-left" >Spotlight</h3>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-2">
+                      <h5 id="Feature" class="white-center desktop">Feature Programs</h5>
+                    </div>
+
+                  </div>
+                    <div class="row">
+                        <div *ngFor="let program of ProgramfeatureList;let i = index">
+                            <div class="col-md-3 spot-tlight-col">
+                                <div id="feature-program-section" class="hover-effect">
+                                    <!-- <figure><img src= "{{ '/assets/Images/lp' +(i+1)+ '.jpg' }}" /></figure> -->
+                                    <figure><img [src]= "SetmainImage(program)" /></figure>
+                                </div>
+                                <br />
+                                <div class="animated bounceInUp"><p style="color:#3B81A3;">{{program.TherapeuticArea}}</p></div>
+                                <p class="feature-program-title animated bounceInUp">{{program.Name}}</p>
+                                <button type=button class="btn kfmc-button center-block animated bounceInUp" *ngIf="featureProgramsLoaded" (click)="NaviageToProgram(program)">Learn More</button>
+                               <br />
+                                <p style="border-bottom: 3px solid gray !important;" class="desktop">
+                                    
+                                </p>
+                                
+                            </div>
+                            
+
+                        </div>
+                        <br />
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="bottom-section">
+            <div class="container">
+                <h2>
+                    Why Learn with Online Training?
+                </h2>
+                <p>
+                    Enhance your professional practice and training using scientifically based online Continuing Professional Development Programs
+                    (CPD) in collaboration with World Leading Academic & Healthcare Institutions. All programs are selected
+                    and approved exclusively by the Academic & Training Affairs at King Fahad Medical City.
+                </p>
+                <ul>
+                    <li><b>Online convenience:</b> Learn, track progress and measure knowledge retention from the convenience
+                        of your desktop, tablet or mobile device</li>
+                    <li><b>Quality, accredited content:</b> Access interactive, online programs developed by leading specialists
+                        and peer-reviewed by experts locally and around the world.</li>
+                    <li><b>No cost to learn:</b> Registration and Participation are free for King Fahad Medical City staff</li>
+                </ul>
+
+
+            </div>
+        </div>
+</div>

@@ -1,0 +1,74 @@
+.navbar{
+    margin-bottom: 0px !important;
+}
+
+.navbar-inverse{
+    background-color:#3B81A3 !important;
+
+    border-color: white !important;
+}
+
+.navbar-inverse h4,p, i {
+    color: white;
+}
+
+.navbar-inverse i, p{
+  margin-left: 5px;
+  margin-top: 15px;
+}
+
+.bar-image{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    width:400px;
+}
+
+
+.dropdown-menu{
+    background-color: black !important;
+}
+
+.navbar-nav a{
+    color:white;
+}
+
+.navbar-nav a:hover{
+    background-color: #3B81A3;
+    color:white;
+}
+
+.navbar-nav a:visited{
+    background-color: #3B81A3;
+    color:white;
+}
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}
+
+
+ .profile-section p, i{
+   color:white;
+} 
+
+
+
+
+
+
+

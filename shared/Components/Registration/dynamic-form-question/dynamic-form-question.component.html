@@ -1,0 +1,64 @@
+<div [formGroup]="form">
+
+  <!--row starts-->
+  <div class="row form-group">
+
+    <label [attr.for]="question.key" class="col-md-4 control-label">{{question.label}}</label>
+
+    <div class="col-md-8">
+
+      <div [ngClass]="isValid && !isPristine? 'has-success has-feedback' : ''">
+
+        <div [ngSwitch]="question.controlType">
+
+          <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type" maxlength="20" class="form-control"
+            [attr.aria-describedby]="inputSuccess + question.key">
+
+          <select *ngSwitchCase="'dropdown'" [id]="question.key" [formControlName]="question.key">
+            <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+          </select>
+
+          <h3 *ngSwitchCase="'heading'" [formControlName]="question.key" [id]="question.key"  maxlength="20" class="form-control">{{opt.value}}</h3>
+
+        </div>
+
+
+
+        <div style="color:red;" *ngIf="!isValid && !isPristine">**</div>
+
+
+        <span *ngIf="isValid && !isPristine" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+        <span [id]="inputSuccess + question.key" class="sr-only">(success)</span>
+      </div>
+
+
+    </div>
+    <!--column ends-->
+  </div>
+  <!--row ends-->
+
+</div>
+<!--form group-->
+
+
+
+
+
+
+<!--initial-->
+<!-- <div [formGroup]="form">
+    <label [attr.for]="question.key">{{question.label}}</label>
+   
+    <div [ngSwitch]="question.controlType">
+   
+      <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+              [id]="question.key" [type]="question.type">
+   
+      <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+        <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+      </select>
+   
+    </div> 
+   
+    <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+  </div> -->

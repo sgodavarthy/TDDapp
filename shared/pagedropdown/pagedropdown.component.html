@@ -1,0 +1,6 @@
+
+                      <select class="" (change)="onChange(selectedPage)" [(ngModel)]="selectedPage" name="QS">
+                              <option *ngFor="let page of PageArray;let i = index" [ngValue]= "page">
+                                {{page}}
+                              </option>
+                      </select> 
